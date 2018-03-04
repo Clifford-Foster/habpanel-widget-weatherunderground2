@@ -1,0 +1,116 @@
+<!-- Download: https://github.com/manifestinteractive/weather-underground-icons -->
+<!-- And place icons somewhere in your /conf/html folder structure -->
+<div ng-init="ServerPath='/static/weather-underground-icons/dist'; IconSet='white'">
+</div>
+
+<link rel="stylesheet" type="text/css" href="/static/weather-underground-icons/dist/wu-icons-style.min.css">
+ 
+<style>
+@media (min-width: 992px) {
+    .col-md-border + .col-md-border {
+			border-left: 1px solid #d7d7d7;
+			margin-left: -1px;
+    }
+  	.day:first-letter {
+    	text-transform: uppercase;
+		}
+  	.current-icon {
+			width: 14em !important;
+  		height: 14em !important;
+  		margin-top: -1em;
+		}
+  	.condition {
+  		height: 2em;
+ 		}
+	.row {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+	.row > .col-md-3 {
+    	display: inline-block;
+    	float: none;
+  }
+  /* Remove scroll bar but might not work Mozilla Firefox and Internet Explorer */
+  ::-webkit-scrollbar { 
+      display: none; 
+  }
+}
+</style>
+
+<div id="container">
+  <div class="row">
+  	<div class="col-md-9">
+      <i class="wu wu-{{IconSet}} wu-256 wu-{{itemValue('Weather_ConditionId')}} current-icon pull-right"></i>
+      <h2 class="text-left">{{itemValue('Weather_Condition0')}}</h2>
+    </div>
+    <div class="col-md-3 text-right">
+      <h2 style="margin-bottom:1em;">{{'%.1f' | sprintf:itemValue('Weather_Temperature')}} °C</h2>
+      <h5><img style="height:16px;" src="{{ServerPath}}/images/humidity.png"/> {{itemValue('Weather_Humidity')}} %</h5>
+      <h5><img style="height:16px;" src="{{ServerPath}}/images/wind.png"/> {{itemValue('Weather_Wind_Speed')}} km/h</h5>
+      <h5><img style="height:16px;" src="{{ServerPath}}/images/feel.png"/> {{itemValue('Weather_Temperature_Feel')}} °C</h5>
+      <h5>{{itemValue('Weather_ObservationTime') | date: 'H:MM'}}</h5>
+   	</div>
+  </div>
+	<div class="row" style="margin-top: 1em; margin-right: 1px;margin-left: 1px;">
+		<div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time0') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId0')}}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition0')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max0')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min0')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time1') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId1')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition1')}}</h5>
+			<h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max1')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min1')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time2') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId2')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition2')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max2')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min2')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time3') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId3')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition3')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max3')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min3')}} °C</h4>
+    </div>
+		<div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time4') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId4')}}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition4')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max4')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min4')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time5') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId5')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition5')}}</h5>
+			<h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max5')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min5')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time6') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId6')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition6')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max6')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min6')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time7') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId7')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition7')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max7')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min7')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time8') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId8')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition8')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max8')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min8')}} °C</h4>
+    </div>
+    <div class="col-md-3 col-md-border">
+      <h4 class="day">{{itemValue('Weather_Forecast_Time9') | date:'EEEE'}}</h4>
+      <i class="wu wu-{{IconSet}} wu-64 wu-{{itemValue('Weather_ConditionId9')| lowercase }}"></i>
+      <h5 class="condition">{{itemValue('Weather_Condition9')}}</h5>
+      <h4><b>{{'%.0f' | sprintf:itemValue('Weather_Temp_Max9')}}</b> / {{'%.0f' | sprintf:itemValue('Weather_Temp_Min9')}} °C</h4>
+    </div>    
+	</div>
+</div>
